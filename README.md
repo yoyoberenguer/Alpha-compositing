@@ -43,4 +43,4 @@ Result with mask = True
 
 
 
-![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/egg.png)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Humpty.jpg)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_Humpty.png)
+![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Egg.png)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Humpty.jpg)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_Humpty.png)
