@@ -51,9 +51,9 @@ Result with mask = True
 - Mask for surface 2 ( full opacity)
 surface2_mask = 1.0 
 
-Left image    -> Surface1 
-Middle image  -> Surface2
-Right image   -> Blending
+Left image    -> Surface1, 
+Middle image  -> Surface2,
+Right image   -> Blending,
 
 
 ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Egg.png)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Humpty.jpg)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_Humpty.png)
