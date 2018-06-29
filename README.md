@@ -46,7 +46,7 @@ Result with mask = True
 
 - New mask for surface1 with an inverted radial opacity.
 
-![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Mask1.png)
+![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Mask1.png)
 
 - Mask for surface 2 ( full opacity)
 surface2_mask = 1.0 
