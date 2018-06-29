@@ -12,3 +12,12 @@ Alpha blending is the process of combining a translucent foreground color with a
 Alpha blending is a convex combination of two colors allowing for transparency effects in computer graphics. The value of alpha in the color code ranges from 0.0 to 1.0, where 0.0 represents a fully transparent color, and 1.0 represents a fully opaque color. 
 This alpha value also corresponds to the ratio of "SRC over DST" in Porter and Duff equations.
 
+The value of the resulting color is given by:
+![alt text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/equation1.png)
+
+If the destination background is opaque, then dstA = 1, and if you enter it to the upper equation:
+![alt text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/equation2.png)
+
+The alpha component may be used to blend to red, green and blue components equally, as in 32-bit RGBA, or, alternatively, there may be three alpha values specified corresponding to each of the primary colors for spectral color filtering.
+If premultiplied alpha is used, the above equations are simplified to:
+![alt text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/equation3.png)
