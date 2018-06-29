@@ -24,3 +24,7 @@ The alpha component may be used to blend to red, green and blue components equal
 If premultiplied alpha is used, the above equations are simplified to:
 
 ![alt text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/equation3.png)
+
+
+
+
