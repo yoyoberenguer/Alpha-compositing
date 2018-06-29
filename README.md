@@ -29,6 +29,7 @@ Surface1 (png image 256x256 with partial transparency and opacity)
 Surface2 (png image 256x256 with full opacity)
 Blending with mask = False 
 surface1 with 31% opacity and surface2 full opacity, no mask
+
 texture = blend_texture_add(surface1, surface2, 150 / 255, 255 / 255, mask_=False)
 
 
@@ -36,19 +37,6 @@ texture = blend_texture_add(surface1, surface2, 150 / 255, 255 / 255, mask_=Fals
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-Blending with mask = True
-
-texture = blend_texture_add(surface1, surface2, 150 / 255, 255 / 255, mask_=True)
+Result with mask = True
 
 ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend.png)
