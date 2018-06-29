@@ -44,12 +44,13 @@ Result with mask = True
 
 Below, using a different alpha mask for surface1 
 
-# Create an alpha channel from a the image radial1_inverted.png
+- Create an alpha channel from image radial1_inverted.png (new mask for surface1 with an inverted radial opacity)
 mask = pygame.image.load('Assets\\radial1_inverted.png').convert_alpha()
 mask = pygame.transform.smoothscale(mask, SIZE)
 surface1_mask = pygame.surfarray.array_alpha(mask)
 surface1_mask = surface1_mask.reshape((256, 256, 1)) / 255
 
-surface2_mask = 1.0
+- Mask for surface 2 ( full opacity)
+surface2_mask = 1.0 
 
 ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Egg.png)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Humpty.jpg)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_Humpty.png)
