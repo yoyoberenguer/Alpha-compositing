@@ -1,18 +1,49 @@
+"""
+This code comes with a MIT license.
+
+Copyright (c) 2018 Yoann Berenguer
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+Please acknowledge and give reference if using the source code for your project(s)
+"""
+
+"""
+Alpha-Compositing python algorithm 
+"""
+
+__author__ = "Yoann Berenguer"
+__copyright__ = "Copyright 2007"
+__credits__ = ["Yoann Berenguer"]
+__license__ = "MIT"
+__version__ = "1.0.0"
+__maintainer__ = "Yoann Berenguer"
+__email__ = "yoyoberenguer@hotmail.com"
+__status__ = "Demo"
+
 import pygame
 import numpy
 import timeit
 
 
 def blend_texture_add(surface1_: pygame.Surface, surface2_: pygame.Surface,
-                      set_alpha1_: float, set_alpha2_: float, mask_: bool) -> pygame.Surface:
+                      set_alpha1_: (float, numpy.ndarray),
+                      set_alpha2_: (float, numpy.ndarray), mask_: bool = False) -> pygame.Surface:
     """
 
     :param surface1_: First layer texture
     :param surface2_: Second layer texture
-    :param set_alpha1_: Alpha values for surface1
-    :param set_alpha2_: Alpha values for surface2
-    :param mask_: True | False, create a mask for black pixel
-    :return: Return a pygame surface
+    :param set_alpha1_: Alpha values for surface1 (can be a float or a numpy array)
+    :param set_alpha2_: Alpha values for surface2 (can be a flaot or a numpy array)
+    :param mask_: True | False, create a mask from surface1 (only black pixels)
+    :return: Return a pygame surface (blend between surface1 & surface2)
     """
 
     """
@@ -43,9 +74,9 @@ def blend_texture_add(surface1_: pygame.Surface, surface2_: pygame.Surface,
         'Expecting Surface for argument surface got %s ' % type(surface1_)
     assert isinstance(surface2_, pygame.Surface), \
         'Expecting Surface for argument surface2_ got %s ' % type(surface2_)
-    assert isinstance(set_alpha1_, float), \
-        'Expecting float for argument set_alpha1_ got %s ' % type(set_alpha1_)
-    assert isinstance(set_alpha2_, float), \
+    assert isinstance(set_alpha1_, (float, numpy.ndarray)), \
+        'Expecting float or numpy.ndarray for argument set_alpha1_ got %s ' % type(set_alpha1_)
+    assert isinstance(set_alpha2_, (float, numpy.ndarray)), \
         'Expecting float for argument set_alpha2_ got %s ' % type(set_alpha2_)
 
     # sizes
@@ -59,13 +90,27 @@ def blend_texture_add(surface1_: pygame.Surface, surface2_: pygame.Surface,
     buffer1 = surface1_.get_view('3')
     buffer2 = surface2_.get_view('3')
 
-    # Extract the surface1_ alpha channel and create a mask_ for (black pixel)
-    alpha1_ = numpy.array(surface1_.get_view('a'), dtype=numpy.uint8).transpose(1, 0) / 255
-    mask_alpha1 = alpha1_ <= 0
+    # Extract the alpha channel from surface1 and create
+    # a mask (array with black pixels flagged) alpha1_ <= 0
+    if isinstance(mask_, bool):
+        # Extract the surface1_ alpha channel and create a mask_ for (black pixel)
+        alpha1_ = numpy.array(surface1_.get_view('a'), dtype=numpy.uint8).transpose(1, 0) / 255
+        mask_alpha1 = alpha1_ <= 0
 
-    # Create alpha channels alpha1 and alpha2
-    alpha1 = numpy.full((w, h, 1), set_alpha1_).transpose(1, 0, 2)
-    alpha2 = numpy.full((w, h, 1), set_alpha2_).transpose(1, 0, 2)
+    if isinstance(set_alpha1_, float):
+        # Create alpha channels alpha1 and alpha2
+        alpha1 = numpy.full((w, h, 1), set_alpha1_).transpose(1, 0, 2)
+    elif isinstance(set_alpha1_, numpy.ndarray):
+        alpha1 = set_alpha1_
+
+    if isinstance(set_alpha2_, float):
+        # Create alpha channels alpha1 and alpha2
+        alpha2 = numpy.full((w, h, 1), set_alpha2_).transpose(1, 0, 2)
+    elif isinstance(set_alpha2_, numpy.ndarray):
+        alpha2 = set_alpha2_
+
+
+    # alpha1 = mask_.reshape((256, 256, 1))
 
     # -------------------  pre-multiplied -------------------
     # 1) create arrays representing surface1_ and surface2_, swap row and column and normalize.
@@ -118,24 +163,42 @@ if __name__ == '__main__':
     screen.blit(background, (0, 0))
 
     # Firat layer texture
-    surface1 = pygame.image.load('Assets\\Asteroid.png').convert_alpha()
+    surface1 = pygame.image.load('Assets\\egg.png').convert_alpha()
     surface1 = pygame.transform.smoothscale(surface1, SIZE)
 
     # Second layer
-    surface2 = pygame.image.load('Assets\\Lava.png').convert_alpha()
+    surface2 = pygame.image.load('Assets\\Humpty.jpg').convert_alpha()
     surface2 = pygame.transform.smoothscale(surface2, SIZE)
 
-    # Blend textures (surface1 with 31% opacity and surface2 full opacity.
-    # If mask is true, a mask for black pixel will be generated and full transparency will be
-    # applied to surface1 black pixels when blending surface1 & surface2.
-    texture = blend_texture_add(surface1, surface2, 150 / 255, 255 / 255, mask_=True)
+    # gradient = numpy.linspace(0, 255, surface1.get_width())
+    # surface1_mask = numpy.repeat(gradient[:, numpy.newaxis], [surface1.get_height()], 1).reshape((256, 256, 1)) / 255
+    # surface1_mask.transpose(1, 0, 2)
 
+    # Create an alpha channel from a the image radial1_inverted.png
+    mask = pygame.image.load('Assets\\radial1_inverted.png').convert_alpha()
+    mask = pygame.transform.smoothscale(mask, SIZE)
+    surface1_mask = pygame.surfarray.array_alpha(mask)
+    surface1_mask = surface1_mask.reshape((256, 256, 1)) / 255
+
+    """
+    # Create alpha channel from the image radial1
+    mask = pygame.image.load('Assets\\radial1.png').convert_alpha()
+    mask = pygame.transform.smoothscale(mask, SIZE)
+    surface2_mask = pygame.surfarray.array_alpha(mask)
+    surface2_mask = surface2_mask.reshape((256, 256, 1)) / 255
+    """
+    surface2_mask = 1.0
+
+    # Blend textures (surface1 with 31% opacity and surface2 full opacity.
+    texture = blend_texture_add(surface1, surface2, surface1_mask, surface2_mask, mask_=True)
+
+    # Save the image
     pygame.image.save(texture, 'Assets\\Blend.png')
 
-    N = 1
-    print('Time per iteration: %s ' %
-          (timeit.timeit("blend_texture_add(surface1, surface2, 80 / 255, 255 / 255, mask_=False)",
-          "from __main__ import blend_texture_add, surface1, surface2", number=N)/N))
+    # N = 1
+    # print('Time per iteration: %s ' %
+    #      (timeit.timeit("blend_texture_add(surface1, surface2, 80 / 255, 255 / 255, mask_=False)",
+    #      "from __main__ import blend_texture_add, surface1, surface2", number=N)/N))
 
     i = 255
     done = False
@@ -143,7 +206,11 @@ if __name__ == '__main__':
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
-        texture = blend_texture_add(surface1, surface2, i / 255, 255 / 255, mask_=False)
+        # Create a transition effect between 2 layers
+        # texture = blend_texture_add(surface1, surface2, i / 255, 255 / 255, mask_=True)
+
+        # Blending
+        texture = blend_texture_add(surface1, surface2, surface1_mask, surface2_mask, mask_=True)
         i -= 1
         if i == 0:
             i = 255
