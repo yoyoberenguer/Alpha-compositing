@@ -25,9 +25,9 @@ If premultiplied alpha is used, the above equations are simplified to:
 
 ![alt text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/equation3.png)
 
-Surface1 (png image 256x256 with partial transparency and opacity)
-Surface2 (png image 256x256 with full opacity)
-Blending with mask = False 
+Surface1 (left image 256x256 with partial transparency and opacity)
+Surface2 (middle image 256x256 with full opacity)
+Blending (right image) 
 surface1 with 31% opacity and surface2 full opacity, no mask
 
 texture = blend_texture_add(surface1, surface2, 150 / 255, 255 / 255, mask_=False)
@@ -50,5 +50,10 @@ Result with mask = True
 
 - Mask for surface 2 ( full opacity)
 surface2_mask = 1.0 
+
+Left image    -> Surface1 
+Middle image  -> Surface2
+Right image   -> Blending
+
 
 ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Egg.png)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Humpty.jpg)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_Humpty.png)
