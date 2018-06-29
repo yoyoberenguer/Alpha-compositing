@@ -40,3 +40,7 @@ texture = blend_texture_add(surface1, surface2, 150 / 255, 255 / 255, mask_=Fals
 Result with mask = True
 
 ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend.png)
+
+
+
+![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/egg.png)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Humpty.jpg)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_Humpty.png)
