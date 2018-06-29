@@ -37,11 +37,13 @@ Blending with mask = False
 
 surface1 with 31% opacity and surface2 full opacity, no mask
 
-texture = blend_texture_add(surface1, surface2, 80 / 255, 255 / 255, mask_=False)
+texture = blend_texture_add(surface1, surface2, 150 / 255, 255 / 255, mask_=False)
 
 ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_no_mask.png)
 
 
 Blending with mask = True
+
+texture = blend_texture_add(surface1, surface2, 150 / 255, 255 / 255, mask_=True)
 
 ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend.png)
