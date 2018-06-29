@@ -44,7 +44,8 @@ Result with mask = True
 
 Below, using a different alpha mask for surface1 
 
-- Create an alpha channel from image radial1_inverted.png (new mask for surface1 with an inverted radial opacity)
+- New mask for surface1 with an inverted radial opacity.
+
 mask = pygame.image.load('Assets\\radial1_inverted.png').convert_alpha()
 mask = pygame.transform.smoothscale(mask, SIZE)
 surface1_mask = pygame.surfarray.array_alpha(mask)
