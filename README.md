@@ -42,7 +42,7 @@ Result with mask = True
 ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend.png)
 
 
-# Below, using a different alpha mask for surface1 
+# Below, using a different mask alpha for surface1 
 
 - New mask for surface1 with an inverted radial opacity.
 
