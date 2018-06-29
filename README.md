@@ -26,20 +26,25 @@ If premultiplied alpha is used, the above equations are simplified to:
 ![alt text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/equation3.png)
 
 Surface1 (png image 256x256 with partial transparency and opacity)
-
-![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Asteroid.png)  ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Lava.png)
-
 Surface2 (png image 256x256 with full opacity)
-
-
-
 Blending with mask = False 
-
 surface1 with 31% opacity and surface2 full opacity, no mask
-
 texture = blend_texture_add(surface1, surface2, 150 / 255, 255 / 255, mask_=False)
 
-![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_no_mask.png)
+
+![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Asteroid.png)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Lava.png)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_no_mask.png)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Blending with mask = True
