@@ -27,7 +27,7 @@ If premultiplied alpha is used, the above equations are simplified to:
 
 Alpha blending example
 
-![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/foreground.png)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/background.png)  ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend.png)
+![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/foreground1.png)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/background1.png)  ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend.png)
 
 
 
