@@ -25,13 +25,13 @@ If premultiplied alpha is used, the above equations are simplified to:
 
 ![alt text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/equation3.png)
 
-Alpha blending example
+# Alpha blending example
 
 ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/foreground1.png)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/background1.png)  ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_Troll.png)
 
 
 
-Blending texture example
+# Blending texture example
 
 Surface1 (left image 256x256 with partial transparency and opacity)
 Surface2 (middle image 256x256 with full opacity)
