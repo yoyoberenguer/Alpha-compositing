@@ -1,8 +1,8 @@
 # Alpha-compositing
 
-**Image alpha compositing**
+## **Image alpha compositing**
 
-## WIKIPEDIA
+### WIKIPEDIA
 
 In computer graphics, alpha compositing is the process of combining an image with a background to create 
 the appearance of partial or full transparency. It is often useful to render image elements in separate 
@@ -41,27 +41,27 @@ If premultiplied alpha is used, the above equations are simplified to:
 
 ![alt text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/equation3.png)
 
-## Alpha blending example
+### Alpha blending example
 
-Partial opacity  |  Full opacity   | Blend mask is False                                         | Blend 
+**Partial opacity**  |  **Full opacity**   | **Blend mask is False**                                         | **Blend** 
 -----------------|-----------------|-------------------------------------------------------------|--------------------
 ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/foreground1.png) | ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/background1.png) | ![alt_text] (https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_Troll.png)
 
-## Blending texture example
+### Blending texture example
 
 texture = blend_texture_add(surface1, surface2, 150 / 255, 255 / 255, mask_=False)
 
-surface1 Partial opacity  |  surface2 Full opacity               | Blend mask is False | Blend mask is True 
+**surface1 Partial opacity**  |  **surface2 Full opacity**               | **Blend mask is False** | **Blend mask is True** 
 --------------------------|--------------------------------------|---------------------|--------------------
 ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Asteroid.png)  | ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Lava.png)   | ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_no_mask.png) | ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend.png)
 
 
-# Below, using a different mask alpha for surface1 
+### Below, using a different mask alpha for surface1 
 
 - New mask for surface1 with an inverted radial opacity.
 
 ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Mask1.png)
 
-surface1 Partial opacity  |  surface2 Full opacity               | Blend mask is True 
+**surface1 Partial opacity**  |  **surface2 Full opacity**               | **Blend mask is True** 
 --------------------------|--------------------------------------|---------------------
 ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Egg.png) | ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Humpty.jpg) | ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_Humpty.png)
