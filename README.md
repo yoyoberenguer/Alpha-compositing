@@ -1,15 +1,31 @@
 # Alpha-compositing
-Image alpha compositing
 
-WIKIPEDIA 
-In computer graphics, alpha compositing is the process of combining an image with a background to create the appearance of partial or full transparency. It is often useful to render image elements in separate passes, and then combine the resulting multiple 2D images into a single, final image called the composite.
+**Image alpha compositing**
+
+## WIKIPEDIA
+
+In computer graphics, alpha compositing is the process of combining an image with a background to create 
+the appearance of partial or full transparency. It is often useful to render image elements in separate 
+passes, and then combine the resulting multiple 2D images into a single, final image called the composite.
 
 With straight alpha, the RGB components represent the color of the object or pixel, disregarding its opacity.
 
-With premultiplied alpha, the RGB components represent the color of the object or pixel, adjusted for its opacity by multiplication. A more obvious advantage of this is that, in certain situations, it can save a subsequent multiplication (e.g. if the image is used many times during later compositing). However, the most significant advantages of using premultiplied alpha are for correctness and simplicity rather than performance: premultiplied alpha allows correct filtering and blending. In addition, premultiplied alpha allows regions of regular alpha blending and regions with additive blending mode to be encoded within the same image.
+With premultiplied alpha, the RGB components represent the color of the object or pixel, adjusted for its 
+opacity by multiplication. A more obvious advantage of this is that, in certain situations, it can save a 
+subsequent multiplication (e.g. if the image is used many times during later compositing). However, the most 
+significant advantages of using premultiplied alpha are for correctness and simplicity rather than 
+performance: premultiplied alpha allows correct filtering and blending. In addition, premultiplied alpha 
+allows regions of regular alpha blending and regions with additive blending mode to be encoded within the same image.
 
-Alpha blending is the process of combining a translucent foreground color with a background color, thereby producing a new blended color. The degree of the foreground color's translucency may range from completely transparent to completely opaque. If the foreground color is completely transparent, the blended color will be the background color. Conversely, if it is completely opaque, the blended color will be the foreground color. The translucency can range between these extremes, in which case the blended color is computed as a weighted average of the foreground and background colors.
-Alpha blending is a convex combination of two colors allowing for transparency effects in computer graphics. The value of alpha in the color code ranges from 0.0 to 1.0, where 0.0 represents a fully transparent color, and 1.0 represents a fully opaque color. 
+Alpha blending is the process of combining a translucent foreground color with a background color, 
+thereby producing a new blended color. The degree of the foreground color's translucency may range from completely
+transparent to completely opaque. If the foreground color is completely transparent, the blended color will be the
+background color. Conversely, if it is completely opaque, the blended color will be the foreground color. 
+The translucency can range between these extremes, in which case the blended color is computed as a weighted average
+of the foreground and background colors.
+Alpha blending is a convex combination of two colors allowing for transparency effects in computer graphics. 
+The value of alpha in the color code ranges from 0.0 to 1.0, where 0.0 represents a fully transparent color,
+and 1.0 represents a fully opaque color. 
 This alpha value also corresponds to the ratio of "SRC over DST" in Porter and Duff equations.
 
 The value of the resulting color is given by:
@@ -25,29 +41,19 @@ If premultiplied alpha is used, the above equations are simplified to:
 
 ![alt text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/equation3.png)
 
-# Alpha blending example
+## Alpha blending example
 
-![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/foreground1.png)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/background1.png)  ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_Troll.png)
+Partial opacity  |  Full opacity   | Blend mask is False | Blend mask is True
+-----------------|-----------------|---------------------|--------------------
+![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/foreground1.png) | ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/background1.png) | ![alt_text] (https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_Troll.png)
 
-
-
-# Blending texture example
-
-Surface1 (left image 256x256 with partial transparency and opacity)
-Surface2 (middle image 256x256 with full opacity)
-Blending (right image) 
-surface1 with 31% opacity and surface2 full opacity, no mask
+## Blending texture example
 
 texture = blend_texture_add(surface1, surface2, 150 / 255, 255 / 255, mask_=False)
 
-
-![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Asteroid.png)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Lava.png)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_no_mask.png)
-
-
-
-Result with mask = True
-
-![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend.png)
+surface1 Partial opacity  |  surface2 Full opacity               | Blend mask is False | Blend mask is True 
+--------------------------|--------------------------------------|---------------------|--------------------
+![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Asteroid.png)  | ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Lava.png)   | ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_no_mask.png) | ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend.png)
 
 
 # Below, using a different mask alpha for surface1 
@@ -56,12 +62,6 @@ Result with mask = True
 
 ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Mask1.png)
 
-- Mask for surface 2 ( full opacity)
-surface2_mask = 1.0 
-
-Left image    -> Surface1, 
-Middle image  -> Surface2,
-Right image   -> Blending,
-
-
-![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Egg.png)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Humpty.jpg)   ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_Humpty.png)
+surface1 Partial opacity  |  surface2 Full opacity               | Blend mask is False 
+--------------------------|--------------------------------------|---------------------
+![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Egg.png) | ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Humpty.jpg) | ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_Humpty.png)
