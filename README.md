@@ -43,8 +43,8 @@ If premultiplied alpha is used, the above equations are simplified to:
 
 ## Alpha blending example
 
-Partial opacity  |  Full opacity   | Blend mask is False | Blend mask is True
------------------|-----------------|---------------------|--------------------
+Partial opacity  |  Full opacity   | Blend mask is False                                         | Blend 
+-----------------|-----------------|-------------------------------------------------------------|--------------------
 ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/foreground1.png) | ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/background1.png) | ![alt_text] (https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_Troll.png)
 
 ## Blending texture example
@@ -62,6 +62,6 @@ surface1 Partial opacity  |  surface2 Full opacity               | Blend mask is
 
 ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Mask1.png)
 
-surface1 Partial opacity  |  surface2 Full opacity               | Blend mask is False 
+surface1 Partial opacity  |  surface2 Full opacity               | Blend mask is True 
 --------------------------|--------------------------------------|---------------------
 ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Egg.png) | ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Humpty.jpg) | ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_Humpty.png)
