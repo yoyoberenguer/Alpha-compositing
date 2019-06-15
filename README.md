@@ -43,9 +43,9 @@ If premultiplied alpha is used, the above equations are simplified to:
 
 ### Alpha blending example
 
-**Partial opacity**  |  **Full opacity**   | **Blend mask is False**                                         
----------------------|---------------------|----------------------------------------------------------------------------------------
-![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/foreground1.png) | ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/background1.png) | ![alt_text] (https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_Troll.png)
+**Partial opacity**  |  **Full opacity**  | **Blend mask is False**                                         
+---------------------|--------------------|----------------------------------------------------------------------------------------
+![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/foreground1.png) | ![alt_text](https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/background1.png)|![alt_text(https://github.com/yoyoberenguer/Alpha-compositing/blob/master/Assets/Blend_Troll.png) 
 
 ### Blending texture example
 
